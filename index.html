@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XV Años de Daniel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      background-color: #111;
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 5.5em;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero p.subtitle {
+      font-size: 1.8em;
+      font-weight: 300;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 30px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 1.8em;
+      font-weight: bold;
+      background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+      position: relative;
+    }
+
+    .intro p {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding: 20px;
+    }
+
+    .intro p::before, .intro p::after {
+      content: "✻";
+      position: absolute;
+      color: gold;
+      font-size: 1.5em;
+    }
+
+    .intro p::before {
+      left: -10px;
+      top: 0;
+    }
+
+    .intro p::after {
+      right: -10px;
+      bottom: 0;
+    }
+
+    .info-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .info-box {
+      flex: 1;
+      min-width: 300px;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .info-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .info-box:hover::before {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .info-box div {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .info-box:hover div {
+      transform: scale(1.05);
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .location-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: gold;
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 0.6em;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .location-btn:hover {
+      background-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .countdown {
+      background: linear-gradient(135deg, #222 0%, #111 100%);
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 2em;
+    }
+
+    .countdown p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: gold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #timer {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.8em;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    #timer span {
+      display: inline-block;
+      min-width: 100px;
+      padding: 15px;
+      background: rgba(255, 215, 0, 0.2);
+      border-radius: 10px;
+      border: 1px solid gold;
+    }
+
+    .rsvp {
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .rsvp a {
+      background: linear-gradient(to right, #4CAF50, #2E8B57);
+      padding: 18px 40px;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1.3em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+    }
+
+    .rsvp a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(to right, #2E8B57, #4CAF50);
+    }
+
+    @media (max-width: 900px) {
+      .info-row {
+        flex-direction: column;
+      }
+      .info-box {
+        height: 250px;
+        font-size: 1.4em;
+      }
+      .hero h1 {
+        font-size: 3.5em;
+      }
+      #timer {
+        flex-direction: column;
+        align-items: center;
+      }
+      #timer span {
+        width: 80%;
+        margin-bottom: 10px;
+      }
+      .location-btn {
+        padding: 6px 15px;
+        font-size: 0.5em;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div>
+      <h1>Daniel Valencia</h1>
+      <p class="subtitle">Mis XV Años</p>
+    </div>
+  </section>
+
+  <section class="intro">
+    <p><strong>¡Estás invitado a celebrar mis XV años! Una noche llena de magia, música y diversión.</strong></p>
+  </section>
+
+  <!-- Secciones horizontales -->
+  <div class="info-row">
+    <div class="info-box" style="background-image: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+      <div>Fecha: 26 de julio de 2025</div>
+    </div>
+    <div class="info-box" style="background-image: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+      <div>
+        Lugar: La Milpa<br>
+        <small>De Los Salgado</small><br>
+        <a href="https://maps.app.goo.gl/eY6jo1bCUbJDwFfX8?g_st=aw" class="location-btn" target="_blank">Ver ubicación</a>
+      </div>
+    </div>
+    <div class="info-box" style="background-image: url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+      <div>Hora: 7:00 PM a 12:00 AM</div>
+    </div>
+  </div>
+
+  <section class="countdown">
+    <p>Faltan para el gran día:</p>
+    <div id="timer"></div>
+  </section>
+
+  <section class="rsvp">
+    <a href="https://wa.me/526623415601" target="_blank">¡Confirma tu asistencia!</a>
+  </section>
+
+  <script>
+    // Cuenta regresiva mejorada
+    const countdown = document.getElementById("timer");
+    const eventDate = new Date("2025-07-26T19:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        countdown.innerHTML = "<span>¡El evento ha comenzado!</span>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `
+        <span>${days}<br><small>días</small></span>
+        <span>${hours}<br><small>horas</small></span>
+        <span>${minutes}<br><small>minutos</small></span>
+        <span>${seconds}<br><small>segundos</small></span>
+      `;
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
