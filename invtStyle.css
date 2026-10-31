@@ -448,13 +448,13 @@
 
     .corona {
         width: 75px;
-        top: 305px;
+        top: 255px;
         left: 25px;
         transform: rotate(-10deg);
     }
     .sombrero {
         width: 85px;
-        top: 390px;
+        top: 340px;
         left: 280px;
         transform: rotate(8deg);
     }
