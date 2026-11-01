@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estás invitado :)</title>
+    <link rel="stylesheet" href="invtStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="invitation-card">
+        <div class="hero">
+            <img src="corona.png" alt="Corona" class="decoracion corona">
+            <img src="sombrero_vaquero.png" alt="Sombrero vaquero" class="decoracion sombrero">
+            <h1>Alondra Maria</h1>
+            <h1>Y Mario Alonso</h1>
+            <p class="subtitle">Nuestra fiesta</p>
+        </div>
+
+        <div class="intro">
+            <h1>Una noche mágica, dos grandes estrellas y personas especiales.</h1>
+            <p>✨ Acompañanos a celebrar nuestros XV años. ✨</p>
+        </div>
+
+        <div class="content">
+            <div class="family">
+                <div class="papás">
+                    <h2>Papás</h2>
+                    <p>Adán Galaz Caperrón</p>
+                    <p>Gpe. Lorena Jaime Córdova</p>
+
+                    <h2>Padrinos y madrinas</h2>
+                </div>
+
+                <div class="padrinos">
+                    <div>
+                        <p>Julián Jaime Córdova</p>
+                        <p>Rosalie Jaime</p>
+                    </div>
+                    <div>
+                        <p>Ramón Córdova Araiza</p>
+                        <p>Mónica Mayorga</p>
+                    </div>
+                    <div>
+                        <p>Javier Arvizu Morán</p>
+                        <p>Lidia Guerrero Guirado</p>
+                    </div>
+                    <div>
+                        <p>Alejandra Gaba Caperón</p>
+                        <p>Mónica Villegas Rivera</p>
+                    </div>
+                    <div>
+                        <p>Jesús Ochoa Portillo</p>
+                        <p>Arlet Galaz Caperón</p>
+                    </div>
+                    <div>
+                        <p>Jesús Joel Gutiérrez D.</p>
+                        <p>Raquel Jaime Córdova</p>
+                    </div>
+                    <div>
+                        <p>Eled Cásdenas Martínez</p>
+                        <p>Cristina Vallejo Álvarez</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mapa">
+                <div class="mapa-card">
+                    <div class="mapa-header">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <div>
+                            <h2>¿Cómo llegar?</h2>
+                            <p>Consulta la ubicación del evento</p>
+                        </div>
+                    </div>
+                    <div class="mapa-preview">
+                        <iframe
+                            id="mapaFrame"
+                            title="Ubicación del evento en Google Maps"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <a id="mapaLink" class="btn btn-maps" href="#" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        Ver en Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-box" style="background-image: url('Casual\ \(1\).jpg');">
+                    <div>Fecha: 28 de noviembre 2026</div>
+                </div>
+                <div class="info-box" style="background-image: url('Casual\ \(2\).jpg');">
+                    <div>Horario: 9:00 PM a 2:00 AM</div>
+                </div>
+                <div class="info-box" style="background-image: url('Casual\ \(3\).jpg');">
+                    <div>Dreescode: Formal <p style="color: #ff6370; font-size: 15px;">RESERVE TONOS DE ROSA Y FUCSIA PARA LA FESTEJADA</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="extras">
+            <div class="description">
+                <p style="font-family: 'Dancing Script';">Nos complace invitarte a una celebración muy especial donde compartiremos momentos inolvidables. Tu presencia hará este evento aún más significativo.</p>
+                <p style="font-family: 'Dancing Script';">¡Esperamos contar contigo para hacer de esta velada algo extraordinario!</p>
+            </div>
+
+            <div class="confirmation">
+                <h2>Por favor confirma tu asistencia.</h2>
+                <div class="btn-group">
+                    <button class="btn btn-primary" id="confirmBtn">
+                        <i class="fas fa-check-circle"></i> Confirmar Asistencia
+                    </button>
+                    <button class="btn btn-secondary" id="detailsBtn">
+                        <i class="fas fa-info-circle"></i> Misa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sobre">
+        <h3>¡Lluvia de sobres! <i class="fa-solid fa-envelope"></i></h3>
+    </div>
+
+    <div class="countdown">
+        <p>Faltan para el gran día...</p>
+        <div id="timer"></div>
+    </div>
+
+    <!--Modal de Confirmación-->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h2>Confirmar Asistencia</h2>
+            <p>Por favor, completa la siguiente información para confirmar tu participación:</p>
+
+            <form id="confirmationForm">
+                <div class="form-group">
+                    <label for="name">Nombre completo:</label>
+                    <input type="text" id="name" requied>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Número de asistentes:</label>
+                    <input type="number" id="guests" min="1" max="10" value="1">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar confirmación
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="misaModal">
+        <div class="modal-content">
+            <h2>Detalles de la Misa</h2>
+            <ul style="text-align: left; margin-bottom: 20px">
+                <li>Lugar: Santuario Nuestra Señora de la Candelaria</li>
+                <li>Hora: 4:00</li>
+            </ul>
+            <img src="misa.png" alt="Imagen no disponible" />
+            <p>Te recordamos evitar usar el color ROSA y FUCSIA, pero además confirmar a tiempo.</p>
+        </div>
+    </div>
+
+    <script src="invtScript.js"></script>
+</body>
+</html>
+
+<!--<a href="https://www.magnific.com/es/psd-gratis/ilustracion-sombrero-vaquero-dibujado-mano_229293450.htm">Imagen de magnific</a>-->
+<!--<a href="https://www.magnific.com/es/vector-gratis/corona-estilo-linea-llena_418787618.htm">Imagen de juicy_fish en Magnific</a>-->
