@@ -174,14 +174,14 @@ html, body {
 }
 
 .grandes{
-    top: 303vh;
+    top: 243vh;
     left: -258px;
     width: 93vh;
     transform: rotate(115deg);
 }
 
 .chicas {
-    top: 364vh;
+    top: 304vh;
     left: 182vh;
     width: 64vh;
     transform: rotate(65deg);
@@ -564,13 +564,13 @@ html, body {
 
 @media (max-width: 600px) {
     .chicas {
-        top: 602vh;
+        top: 532vh;
         left: -30vh;
         width:40vh;
     }
 
     .grandes {
-        top: 496vh;
+        top: 426vh;
         left: -258px;
         width: 70vh;
     }
